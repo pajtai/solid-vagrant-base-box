@@ -25,6 +25,9 @@
       "name": "puppetlabs/nodejs"
     },
     {
+      "name": "jfryman/nginx"
+    },
+    {
       "name": "acme/ohmyzsh"
     },
     {
