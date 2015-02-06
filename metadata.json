@@ -6,6 +6,35 @@
   "summary": "Base box with standard issue dependencies",
   "source": "https://git.thinkoslid.com/Solid",
   "dependencies": [
-    { "name": "puppetlabs/apt" }
+    {
+      "name": "puppetlabs/apt"
+    },
+    {
+      "name": "willdurand/composer"
+    },
+    {
+      "name": "puppetlabs/inifile"
+    },
+    {
+      "name": "puppetlabs/mongodb"
+    },
+    {
+      "name": "puppetlabs/mysql"
+    },
+    {
+      "name": "puppetlabs/nodejs"
+    },
+    {
+      "name": "acme/ohmyzsh"
+    },
+    {
+      "name": "example42/php"
+    },
+    {
+      "name": "puppetlabs/ruby"
+    },
+    {
+      "name": "puppetlabs/stdlib"
+    }
   ]
 }
