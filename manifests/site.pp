@@ -1,13 +1,8 @@
 node default {
-# mongo
-  class { '::mongodb::globals':
-    manage_package_repo => true,
-    version             => '2.4.10'
-  }->
-  class { '::mongodb::server': }
 
-# mysql
-  class { '::mysql::server': }
+  exec { 'apt-update':                    # exec resource named 'apt-update'
+    command => '/usr/bin/apt-get update'  # command this resource will run
+  }
 
   $tools = [
     'git-core',
@@ -16,22 +11,47 @@ node default {
     'dkms',
     'vim'
   ]
-  package { $tools: ensure => 'installed' }
+  package {
+    $tools: ensure => 'installed'
+  }
 
-# remeber to add in ~/.zshrc
+  ######################################################################################################################
+
+  class { '::mongodb::globals':
+    manage_package_repo => true,
+    version             => '2.4.10'
+  }->
+  class { '::mongodb::server': }
+
+  ######################################################################################################################
+
+  class { '::mysql::server': }
+
+  ######################################################################################################################
+
+  # remember to add in ~/.zshrc
+  include ohmyzsh
   ohmyzsh::install { 'vagrant': }
+
+  ######################################################################################################################
 
   class { 'nodejs':
     node_pkg    => 'nodejs01031',
     npm_pkg     => 'nodejs01031-npm',
   }
 
-  package { 'express':
+  ######################################################################################################################
+
+  package { 'grunt-cli':
     ensure   => present,
     provider => 'npm',
   }
 
+  ######################################################################################################################
+
   class { 'nginx': }
+
+  ######################################################################################################################
 
   class { 'php': }
   php::module { 'php5-common': }

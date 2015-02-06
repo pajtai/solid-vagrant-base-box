@@ -10,7 +10,7 @@ The box is located here:
 
 1. Install gem, bundler, and Vagrant
 2. `bundle`
-3. 'librarian-vagrant install --clean --verbose`
+3. `librarian-vagrant install --verbose`
 3. `vagrant up --provision`
 
 #### Saving the box
