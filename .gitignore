@@ -1,0 +1,7 @@
+.idea/
+.librarian/
+.tmp/
+.vagrant/
+
+.DS_Store
+modules/

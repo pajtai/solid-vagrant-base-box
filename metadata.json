@@ -1,0 +1,11 @@
+{
+  "name": "solid-vagran-base",
+  "version": "0.1.0",
+  "author": "Peter Ajtai",
+  "license": "Apache-2.0",
+  "summary": "Base box with standard issue dependencies",
+  "source": "https://git.thinkoslid.com/Solid",
+  "dependencies": [
+    { "name": "puppetlabs/apt" }
+  ]
+}
