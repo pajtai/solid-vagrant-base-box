@@ -19,7 +19,7 @@ end
 Vagrant.configure("2") do |config|
 
   config.vm.box = "ubuntu/precise64"
-
+  config.vm.hostname = "solid"
   config.vbguest.no_remote = false
 
 
@@ -47,12 +47,20 @@ Vagrant.configure("2") do |config|
         v.customize ["modifyvm", :id, "--cpus", cpus]
   end
 
+    config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
+    config.vm.network :forwarded_port, guest: 3306, host: 8306, auto_correct: true
+    #config.vm.synced_folder "./", "/vagrant/app/targets", owner: 'www-data', group: 'www-data', extra: 'dmode=775,fmode=644'
+    #config.vm.synced_folder "./", "/vagrant", owner: "www-data", group: "www-data"
+
+    config.vm.network "private_network", ip: "192.168.12.138"
+    config.vm.synced_folder "./", "/vagrant", nfs: true
+
   #This next bit fixes the 'stdin is not a tty' error when shell provisioning Ubuntu boxes
   config.vm.provision :shell,
     #if there a line that only consists of 'mesg n' in /root/.profile, replace it with 'tty -s && mesg n'
     :inline => "(grep -q -E '^mesg n$' /root/.profile && sed -i 's/^mesg n$/tty -s \\&\\& mesg n/g' /root/.profile && echo 'Ignore the previous error about stdin not being a tty. Fixing it now...') || exit 0;"
   config.vm.provision :puppet do |puppet|
-     puppet.module_path = "modules"
+     puppet.module_path = ["modules", "modules_custom"]
      puppet.manifests_path = "manifests"
      puppet.manifest_file = "site.pp"
      puppet.options = [
@@ -60,13 +68,6 @@ Vagrant.configure("2") do |config|
         #'--debug'
      ]
   end
+  config.vm.provision :shell, :path => "bin/verification.sh"
   config.vm.provision :shell, :path => "bin/cleanup.sh"
-
-  config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
-  config.vm.network :forwarded_port, guest: 3306, host: 8306, auto_correct: true
-  #config.vm.synced_folder "./", "/vagrant/app/targets", owner: 'www-data', group: 'www-data', extra: 'dmode=775,fmode=644'
-  #config.vm.synced_folder "./", "/vagrant", owner: "www-data", group: "www-data"
-
-  config.vm.network "private_network", ip: "192.168.12.138"
-  config.vm.synced_folder "./", "/vagrant", nfs: true
 end

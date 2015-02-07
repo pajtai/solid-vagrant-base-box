@@ -7,6 +7,9 @@
   "source": "https://git.thinkoslid.com/Solid",
   "dependencies": [
     {
+      "name": "puppetlabs/apache"
+    },
+    {
       "name": "puppetlabs/apt"
     },
     {
@@ -22,7 +25,7 @@
       "name": "puppetlabs/mysql"
     },
     {
-      "name": "puppetlabs/nodejs"
+      "name": "willdurand/nodejs"
     },
     {
       "name": "jfryman/nginx"
@@ -31,7 +34,7 @@
       "name": "acme/ohmyzsh"
     },
     {
-      "name": "example42/php"
+      "name": "nodes/php"
     },
     {
       "name": "puppetlabs/ruby"
