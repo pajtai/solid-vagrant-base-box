@@ -1,4 +1,4 @@
-#!/bin/bash -eux
+#!/bin/bash
 
 echo "\nPHP-FPM running:\n"
 ps aux | grep php-fpm | sed 's/^/    /'
