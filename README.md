@@ -26,6 +26,8 @@ cat /dev/null > ~/.bash_history && history -c && exit
 
 #### Verifications
 
+Are run at the end of the install, and the can always be run with `verify`
+
 ```
 
 ```

@@ -1,11 +1,8 @@
 define solid::node {
 
-  class { 'nodejs':
-    version => 'v0.10.25'
-  }
-
-  package { 'grunt-cli':
+  package {'grunt-cli':
+    ensure   => present,
     provider => 'npm',
-    require  => Class['nodejs']
+    require  => Package['nodejs'],
   }
 }

@@ -25,7 +25,7 @@
       "name": "puppetlabs/mysql"
     },
     {
-      "name": "willdurand/nodejs"
+      "name": "proletaryo/nvm_nodejs"
     },
     {
       "name": "jfryman/nginx"
