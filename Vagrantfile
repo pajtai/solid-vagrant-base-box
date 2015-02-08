@@ -18,7 +18,7 @@ end
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "ubuntu/precise64"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "solid"
   config.vbguest.no_remote = false
 
@@ -49,6 +49,7 @@ Vagrant.configure("2") do |config|
 
     config.vm.network :forwarded_port, guest: 80, host: 8080, auto_correct: true
     config.vm.network :forwarded_port, guest: 3306, host: 8306, auto_correct: true
+    config.vm.network :forwarded_port, guest: 9200, host: 9200, auto_correct: true
     #config.vm.synced_folder "./", "/vagrant/app/targets", owner: 'www-data', group: 'www-data', extra: 'dmode=775,fmode=644'
     #config.vm.synced_folder "./", "/vagrant", owner: "www-data", group: "www-data"
 

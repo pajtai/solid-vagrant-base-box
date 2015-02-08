@@ -22,5 +22,20 @@ define solid::php {
     ensure => running,
     require => Package['php5-fpm'],
   }
+
+  file { [ "/var", "/var/www", "/var/www/ini" ]:
+    ensure => directory,
+    before => File ['setup php info file'],
+  }
+
+  file { 'setup php info file':
+    path => '/var/www/ini/info.php',
+    owner => 'www-data',
+    group => 'www-data',
+    mode   => 0644,
+    ensure => file,
+    source => 'puppet:///modules/solid/info.php',
+  }
+
 }
 

@@ -5,5 +5,6 @@ define solid::database {
   }->
   class { '::mongodb::server': }
 
-  class { '::mysql::server': }
+  class { '::mysql::server':
+    require => Exec['apt_update']}
 }

@@ -1,4 +1,4 @@
-### Solid Vagrant Box
+### Solid Vagrant Box - `0.1.0`
 
 This is a base Vagrant box. A snapshot of the box should be used as a starting point for projects.
 
@@ -24,15 +24,18 @@ sudo rm -f /EMPTY
 cat /dev/null > ~/.bash_history && history -c && exit
 ```
 
-#### Verifications
+#### Optional port forwarding and hosts management
 
-Are run at the end of the install, and the can always be run with `verify`
+The vagrant box forwards its port 80 to 8080, so in your host browser you have to use `:8080`.
+
+To use port 80 instead use [`pf` on macs](https://gist.github.com/pajtai/16df0303d7948f0e4da8).
+
+If you need to match host names use the `/etc/hosts` of your host:
 
 ```
-
+# part of /etc/hosts
+# http://my.test.host.com will now hit vagrant
+127.0.0.1 my.test.host.com
 ```
 
-#### Conventions
-
-Puppet classes describe types of boxes. Puppet defines are "mixins" to be used as needed... e.g. in classes.
-Custom modules should not be mixed with forge modules.
+Without pf and hosts file modifications `localhost:8080` will hit the Vagrant box.
