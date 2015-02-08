@@ -1,10 +1,10 @@
 {
-  "name": "solid-vagran-base",
+  "name": "solid-vagrant-base",
   "version": "0.1.0",
   "author": "Peter Ajtai",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "summary": "Base box with standard issue dependencies",
-  "source": "https://git.thinkoslid.com/Solid",
+  "source": "https://github.com/pajtai/solid-vagrant-base-box",
   "dependencies": [
     {
       "name": "puppetlabs/apache"
