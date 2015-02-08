@@ -22,8 +22,6 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "solid"
   config.vbguest.no_remote = false
 
-
-
   config.vm.provider "virtualbox" do |v|
       v.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
 
@@ -54,7 +52,7 @@ Vagrant.configure("2") do |config|
     #config.vm.synced_folder "./", "/vagrant", owner: "www-data", group: "www-data"
 
     config.vm.network "private_network", ip: "192.168.12.138"
-    config.vm.synced_folder "./", "/vagrant", nfs: true
+    #config.vm.synced_folder "./", "/vagrant", nfs: true
 
   #This next bit fixes the 'stdin is not a tty' error when shell provisioning Ubuntu boxes
   config.vm.provision :shell,
