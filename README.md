@@ -9,9 +9,13 @@ The box is located here:
 #### Building the box
 
 1. Install gem, bundler, and Vagrant
-2. `bundle`
-3. `librarian-vagrant install --verbose`
-3. `vagrant up --provision` - do **not** run `sudo` or you will mess up you ~/.vagrant.d dir (where vagrant store a lot of stuff)
+2. Pull dependencies and build the box:
+
+    ```shell
+    bundle
+    librarian-vagrant install --verbose
+    vagrant up --provision
+    ```
 
 #### Saving the box
 
