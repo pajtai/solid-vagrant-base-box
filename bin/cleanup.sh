@@ -1,44 +1,47 @@
-#!/bin/sh
+#!/bin/bash -eux
 
-cat - << EOWARNING
-WARNING: This script will fill up your left over disk space.
+# source is: https://github.com/chef/bento/blob/master/packer/scripts/ubuntu/cleanup.sh
+# only modification is the "try catch" (air quotes) for dd
 
-DO NOT RUN THIS WHEN YOUR VIRTUAL HD IS RAW!!!!!!
+# delete all linux headers
+dpkg --list | awk '{ print $2 }' | grep linux-headers | xargs apt-get -y purge
 
-You should NOT do this on a running system.
-This is purely for making vagrant boxes damn small.
+# this removes specific linux kernels, such as
+# linux-image-3.11.0-15-generic but
+# * keeps the current kernel
+# * does not touch the virtual packages, e.g.'linux-image-generic', etc.
+#
+dpkg --list | awk '{ print $2 }' | grep 'linux-image-3.*-generic' | grep -v `uname -r` | xargs apt-get -y purge
 
-Press Ctrl+C within the next 10 seconds if you want to abort!!
+# delete linux source
+dpkg --list | awk '{ print $2 }' | grep linux-source | xargs apt-get -y purge
 
-EOWARNING
-sleep 10;
+# delete development packages
+dpkg --list | awk '{ print $2 }' | grep -- '-dev$' | xargs apt-get -y purge
 
-echo 'remove apt cache'
-sudo apt-get autoremove -y
-sudo apt-get clean -y
+# delete compilers and other development tools
+apt-get -y purge cpp gcc g++
 
-echo 'Cleanup bash history'
-unset HISTFILE
-[ -f /root/.bash_history ] && rm /root/.bash_history
-[ -f /home/vagrant/.bash_history ] && rm /home/vagrant/.bash_history
+# delete X11 libraries
+apt-get -y purge libx11-data xauth libxmuu1 libxcb1 libx11-6 libxext6
 
-echo 'Cleanup log files'
-find /var/log -type f | while read f; do echo -ne '' > $f; done;
+# delete obsolete networking
+apt-get -y purge ppp pppconfig pppoeconf
 
-echo 'Whiteout root'
-count=`df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}'`;
-let count--
-dd if=/dev/zero of=/tmp/whitespace bs=1024 count=$count;
-rm /tmp/whitespace;
+# delete oddities
+apt-get -y purge popularity-contest
 
-echo 'Whiteout /boot'
-count=`df --sync -kP /boot | tail -n1 | awk -F ' ' '{print $4}'`;
-let count--
-dd if=/dev/zero of=/boot/whitespace bs=1024 count=$count;
-rm /boot/whitespace;
+apt-get -y autoremove
+apt-get -y clean
+rm -rf VBoxGuestAdditions_*.iso VBoxGuestAdditions_*.iso.?
+rm -f /tmp/chef*deb
 
-swappart=`cat /proc/swaps | tail -n1 | awk -F ' ' '{print $1}'`
-swapoff $swappart;
-dd if=/dev/zero of=$swappart;
-mkswap $swappart;
-swapon $swappart;
+# with the e flag set, we have to "catch" the error dd is gonna trigger when it fills up the disk
+{
+    dd if=/dev/zero of=/EMPTY bs=1M
+} || {
+    rm -f /EMPTY
+}
+# Block until the empty file has been removed, otherwise, Packer
+# will try to kill the box while the disk is still full and that's bad
+sync
