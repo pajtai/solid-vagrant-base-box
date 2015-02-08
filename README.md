@@ -4,7 +4,7 @@
 
 * [solid.0.1.0](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.0/solid.0.1.0.box)
     
-(see 
+(see [the features list](#010-features) for a breakdown.
 
 This is a base Vagrant box. A snapshot of the box should be used as a starting point for projects.
 
@@ -51,7 +51,7 @@ Without pf and hosts file modifications `localhost:8080` will hit the Vagrant bo
 
 #### Rough Feature List
 
-To get the exact features look in `manifests/site.pp` which pulls in from `modules_custom`.
+To get the exact features look in [`manifests/site.pp`](tree/master/manifests) which pulls in from [`modules_custom`](tree/master/modules_custom/solid).
 
 ##### 0.1.0 features:
 
