@@ -1,6 +1,6 @@
 ### Solid Vagrant Box
 
-This is a base Vagrant box. The box should be pulled down from AWS and used as the base in project `Vagrantfile`s.
+This is a base Vagrant box. A snapshot of the box should be used as a starting point for projects.
 
 This allows quick switching between files that share the same Vagrant box.
 
