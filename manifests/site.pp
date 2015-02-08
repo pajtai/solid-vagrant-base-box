@@ -10,7 +10,7 @@ class {'solid::initial':
 }
 
 # load our customizations
-solid::packages       { "load default packages": } ->
+solid::packages       { "load default packages": }
 solid::zsh            { "load zsh with oh my zsh theme": }
 solid::database       { "load all databases": }
 solid::node           { "load node and global npms": }

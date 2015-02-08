@@ -4,5 +4,9 @@ define solid::zsh {
   class { 'ohmyzsh': }
 
 # for the "vagrant" user
-  ohmyzsh::install { 'vagrant': }
+  ohmyzsh::install { ['root', 'vagrant'] : }
+
+  ohmyzsh::theme { ['root', 'vagrant'] :
+    theme => 'avit'
+  }
 }
