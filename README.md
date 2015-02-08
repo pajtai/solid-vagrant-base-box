@@ -1,5 +1,11 @@
 ### Solid Vagrant Box - `0.1.0`
 
+#### Download a Release:
+
+* [solid.0.1.0](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.0/solid.0.1.0.box)
+    
+(see 
+
 This is a base Vagrant box. A snapshot of the box should be used as a starting point for projects.
 
 This allows quick switching between files that share the same Vagrant box.
@@ -36,3 +42,17 @@ If you need to match host names use the `/etc/hosts` of your host:
 ```
 
 Without pf and hosts file modifications `localhost:8080` will hit the Vagrant box.
+
+#### Notes
+
+* the project `modules` directory is reserved for modules pulled down by `librarian-puppet`
+* the project `modules_custom` directory is - surprisingly - for custom modules not from forge
+* `/etc/nginx/site-enabled` has one site listening at `www.local.info` - going there will show phpinfo();
+
+#### Rough Feature List
+
+To get the exact features look in `manifests/site.pp` which pulls in from `modules_custom`.
+
+##### 0.1.0 features:
+
+* nginx, node, npm, grunt-cli, mongo, mysql, php fpm, git, curl, build-essential, dkms, vim, zsh, oh-my-zsh
