@@ -51,7 +51,7 @@ Without pf and hosts file modifications `localhost:8080` will hit the Vagrant bo
 
 #### Rough Feature List
 
-To get the exact features look in [`manifests/site.pp`](tree/master/manifests) which pulls in from [`modules_custom`](tree/master/modules_custom/solid).
+To get the exact features look in [`manifests/site.pp`](https://github.com/pajtai/solid-vagrant-base-box/blob/master/manifests/site.pp) which pulls in from [`modules_custom`](https://github.com/pajtai/solid-vagrant-base-box/tree/master/modules_custom/solid/manifests).
 
 ##### 0.1.0 features:
 
