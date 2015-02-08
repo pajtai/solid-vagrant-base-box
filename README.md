@@ -21,13 +21,6 @@ The box is located here:
 
 1. `vagrant package my-virtual-machine`
 
-```
-sudo apt-get clean
-sudo dd if=/dev/zero of=/EMPTY bs=1M
-sudo rm -f /EMPTY
-cat /dev/null > ~/.bash_history && history -c && exit
-```
-
 #### Optional port forwarding and hosts management
 
 The vagrant box forwards its port 80 to 8080, so in your host browser you have to use `:8080`.
