@@ -47,10 +47,10 @@ Without pf and hosts file modifications `localhost:8080` will hit the Vagrant bo
 * the project `modules_custom` directory is - surprisingly - for custom modules not from forge
 * for an idea of the space savings of running the cleanup script at the end, [see here](https://gist.github.com/pajtai/d50f80a8af55da89f170).
 * `/etc/nginx/site-enabled` has one site listening at `localhost` - going there will show phpinfo(); http://localhost:8080
-* to verify everything run the following in the box (will rename it to remove the `.sh` later)
+* to verify everything run the following in the box (will rename it to remove the `.sh` later). Mysql has to be run sudo and node has to be run with vagrant user.
 
     ```
-    sudo -u vagrant verification.sh
+    verification.sh && sudo verification.sh
     ```
 
 #### Rough Feature List
