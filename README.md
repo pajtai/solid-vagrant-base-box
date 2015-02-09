@@ -1,8 +1,6 @@
-### Solid Vagrant Box - `0.1.1`
+### Solid Vagrant Box
 
-#### Download:
-
-* [solid.0.1.1](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.1/solid.0.1.1.box)
+#### [Download `solid.0.1.1.box`](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.1/solid.0.1.1.box)
     
 (see [the features list](#010-features) for a breakdown)
 
