@@ -3,6 +3,7 @@ FORGE
   specs:
     acme-ohmyzsh (0.1.2)
       puppetlabs-stdlib (>= 0)
+    eirc-single_user_rvm (0.3.0)
     jfryman-nginx (0.2.2)
       puppetlabs-apt (< 2.0.0, >= 1.0.0)
       puppetlabs-concat (< 2.0.0, >= 1.1.1)
@@ -27,8 +28,6 @@ FORGE
     puppetlabs-mysql (3.1.0)
       nanliu-staging (~> 1.0)
       puppetlabs-stdlib (>= 3.2.0)
-    puppetlabs-ruby (0.4.0)
-      puppetlabs-stdlib (< 5.0.0, >= 3.2.0)
     puppetlabs-stdlib (4.5.1)
     willdurand-composer (1.1.0)
       maestrodev-wget (>= 1.2.0)
@@ -38,6 +37,7 @@ FORGE
 
 DEPENDENCIES
   acme-ohmyzsh (>= 0)
+  eirc-single_user_rvm (>= 0)
   jfryman-nginx (>= 0)
   nodes-php (>= 0)
   puppetlabs-apache (>= 0)
@@ -45,7 +45,6 @@ DEPENDENCIES
   puppetlabs-inifile (>= 0)
   puppetlabs-mongodb (>= 0)
   puppetlabs-mysql (>= 0)
-  puppetlabs-ruby (>= 0)
   puppetlabs-stdlib (>= 0)
   willdurand-composer (>= 0)
   willdurand-nodejs (>= 0)

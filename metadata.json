@@ -37,9 +37,6 @@
       "name": "nodes/php"
     },
     {
-      "name": "puppetlabs/ruby"
-    },
-    {
       "name": "puppetlabs/stdlib"
     }
   ]

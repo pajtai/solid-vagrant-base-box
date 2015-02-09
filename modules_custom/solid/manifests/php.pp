@@ -29,12 +29,12 @@ define solid::php {
   }
 
   file { 'setup php info file':
-    path => '/var/www/ini/info.php',
+    path => '/var/www/ini/index.php',
     owner => 'www-data',
     group => 'www-data',
     mode   => 0644,
     ensure => file,
-    source => 'puppet:///modules/solid/info.php',
+    source => 'puppet:///modules/solid/index.php',
   }
 
 }

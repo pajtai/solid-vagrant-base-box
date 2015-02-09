@@ -18,7 +18,7 @@ end
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "solid.0.1.0"
   config.vm.hostname = "solid"
   config.vbguest.no_remote = false
 
@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
      puppet.manifest_file = "site.pp"
      puppet.options = [
         '--verbose',
-        #'--debug'
+        '--debug'
      ]
   end
   config.vm.provision :shell, :path => "bin/verification.sh"

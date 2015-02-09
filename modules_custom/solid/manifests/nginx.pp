@@ -5,9 +5,6 @@ define solid::nginx {
   file { 'vagrant-nginx':
     path => '/etc/nginx/sites-available/phpini',
     ensure => file,
-    owner => 'www-data',
-    group => 'www-data',
-    mode   => 0644,
     source => 'puppet:///modules/solid/phpini.conf',
   }
 
