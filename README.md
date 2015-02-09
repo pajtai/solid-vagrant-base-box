@@ -2,7 +2,7 @@
 
 #### [Download `solid.0.1.1.box`](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.1/solid.0.1.1.box)
     
-(see [the features list](#010-features) for a breakdown)
+(see [the features list](#features) for a breakdown)
 
 This is a base Vagrant box. A snapshot of the box should be used as a starting point for projects.
 
