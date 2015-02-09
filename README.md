@@ -1,4 +1,4 @@
-### Solid Vagrant Box
+### [Solid](solid.ws) Vagrant Box
 
 #### [Download `solid.0.1.1.box`](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.1/solid.0.1.1.box)
     
