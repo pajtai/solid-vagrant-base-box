@@ -50,7 +50,7 @@ Without pf and hosts file modifications `localhost:8080` will hit the Vagrant bo
 * to verify everything run the following in the box (will rename it to remove the `.sh` later)
 
     ```
-    verification.sh && sudo verification.sh
+    sudo -u vagrant verification.sh
     ```
 
 #### Rough Feature List
