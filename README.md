@@ -1,8 +1,8 @@
-### Solid Vagrant Box - `0.1.0`
+### Solid Vagrant Box - `0.1.1`
 
-#### Download a Release:
+#### Download:
 
-* [solid.0.1.0](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.0/solid.0.1.0.box)
+* [solid.0.1.1](https://github.com/pajtai/solid-vagrant-base-box/releases/download/0.1.1/solid.0.1.1.box)
     
 (see [the features list](#010-features) for a breakdown)
 
@@ -54,6 +54,6 @@ Without pf and hosts file modifications `localhost:8080` will hit the Vagrant bo
 
 To get the exact features look in [`manifests/site.pp`](https://github.com/pajtai/solid-vagrant-base-box/blob/master/manifests/site.pp) which pulls in from [`modules_custom`](https://github.com/pajtai/solid-vagrant-base-box/tree/master/modules_custom/solid/manifests).
 
-##### 0.1.0 features:
+##### Features:
 
 * nginx, node, npm, grunt-cli, mongo, mysql, php fpm, git, curl, build-essential, dkms, vim, zsh, oh-my-zsh

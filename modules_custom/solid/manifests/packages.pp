@@ -5,10 +5,10 @@ define solid::packages {
     'curl',
     'build-essential',
     'dkms',
-    'vim'
+    'vim',
   ]
 
   package {
-    $tools: ensure => 'latest'
+    $tools: ensure => 'latest',
   }
 }

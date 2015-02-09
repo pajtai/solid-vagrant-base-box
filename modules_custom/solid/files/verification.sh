@@ -10,7 +10,7 @@ echo "GIT version:"
 git --version | sed 's/^/    /'
 
 echo "MYSQL running:"
-mysqladmin -uroot status  | sed 's/^/    /'
+/etc/init.d/mysql status  | sed 's/^/    /'
 
 echo "MONGO running:"
 status mongodb | sed 's/^/    /'

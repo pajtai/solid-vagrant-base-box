@@ -18,7 +18,7 @@ end
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "solid.0.1.0"
+  config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "solid"
   config.vbguest.no_remote = false
 
@@ -67,6 +67,6 @@ Vagrant.configure("2") do |config|
         '--debug'
      ]
   end
-  config.vm.provision :shell, :path => "bin/verification.sh"
+  config.vm.provision :shell, :path => "modules_custom/solid/files/verification.sh"
   config.vm.provision :shell, :path => "bin/cleanup.sh"
 end

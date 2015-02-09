@@ -32,7 +32,7 @@ define solid::php {
     path => '/var/www/ini/index.php',
     owner => 'www-data',
     group => 'www-data',
-    mode   => 0644,
+    mode   => 644,
     ensure => file,
     source => 'puppet:///modules/solid/index.php',
   }

@@ -7,6 +7,10 @@ define solid::zsh {
   ohmyzsh::install { ['root', 'vagrant'] : }
 
   ohmyzsh::theme { ['root', 'vagrant'] :
-    theme => 'avit'
+    theme => 'avit',
+  }
+
+  ohmyzsh::plugins { ['root', 'vagrant']:
+    plugins => 'git',
   }
 }
